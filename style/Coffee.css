@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #020253;
+    --bg-color: #E5EEFF;
+}
+
+body {
+    font-family: "Heebo", arial, sans-serif;
+    overflow-y: hidden;
+}
+
+h1,
+p,
+label {
+    color: var(--primary-color);
+}
+
+p {
+    font: normal normal normal 20px/29px Heebo;
+}
+
+h1 {
+    font: normal normal 900 43px/63px Heebo;
+}
+
+.container-form-title {
+    width: 65%;
+}
+
+.container {
+    display: flex;
+}
+
+img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.container-img {
+    width: 60vw;
+}
+
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.container-form {
+    width: 40vw;
+    direction: rtl;
+    padding: 0 4.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    /* align-items: center; */
+    margin-top: 10em;
+}
+
+label {
+    font: normal normal bold 16px/24px Heebo;
+    color: #2C2C2C;
+}
+
+input[type="text"] {
+    height: 50px;
+    width: 418px;
+    background: var(--bg-color);
+    border: 0;
+    border-bottom: 5px solid var(--primary-color);
+}
+
+input[type="email"] {
+    height: 50px;
+    width: 418px;
+    background: var(--bg-color);
+    border: 0;
+    border-bottom: 5px solid var(--primary-color);
+}
+
+input[type="submit"] {
+    width: 166px;
+    height: 50px;
+    background: var(--primary-color) 0% 0% no-repeat padding-box;
+    color: #fff;
+    border: 0;
+    font: normal normal bold 16px/24px Heebo;
+}
+
+@media (max-width:450px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container-img,
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 280px;
+    }
+
+    .container-form-title {
+        width: 100%;
+    }
+
+    .container-form {
+        width: 100%;
+        margin: 0.5rem auto;
+        padding: 45px;
+    }
+
+
+    input[type="submit"] {
+        width: 100%;
+        height: 35px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        height: 35px;
+        width: 100%;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    div>h1 {
+        font-size: 28px;
+    }
+
+}

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {}
+
+/*Header*/
+
+.container-header {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    position: relative;
+}
+
+.top-line {
+    display: inline-block;
+    background-color: #FDBD03;
+    height: 18px;
+    width: 420px;
+    position: absolute;
+    right: 0;
+}
+
+.h-icons i {
+    position: absolute;
+    top: 50px;
+    left: 70px;
+    font-size: 50px;
+    background-color: #FDBD03;
+    padding: 22px;
+    border-radius: 50%;
+    font-weight: 600;
+}
+
+/*Footer*/
+
+.container-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.buttom-line {
+    background-color: #FDBD03;
+    height: 18px;
+    width: 1000px;
+}
+
+.f-icons {
+    width: 500px;
+    display: inline-flex;
+    justify-content: space-evenly;
+    padding: 25px;
+}
+
+.f-icons i {
+    font-size: 28px;
+    background-color: #FDBD03;
+    padding: 28px;
+    border-radius: 50%;
+}
+
+/*Form*/
+
+.container-form {
+    display: flex;
+    flex-direction: row;
+    /* Positions the image on the right and form content on the left */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    direction: rtl;
+    padding: 20px;
+}
+
+form {
+    width: 100%;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+input[type="text"],
+input[type="email"] {
+    height: 50px;
+    width: 417px;
+    background: #E5EEFF;
+    border: 0;
+    border-bottom: 5px solid #FDBD03;
+}
+
+label {
+    color: #2C2C2C;
+    font: normal normal bold 16px Heebo;
+}
+
+.textarea-control textarea {
+    background: #E5EEFF;
+    border: 0;
+    border-bottom: 5px solid #FDBD03;
+    height: 142px;
+    width: 859px;
+    resize: none;
+}
+
+input[type="submit"] {
+    color: #000000;
+    background-color: #FDBD03;
+    border: 0;
+    width: 166px;
+    height: 50px;
+    font: normal normal bold 22px/30px Heebo;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.direction-control {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.textarea-control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.container-content {
+    text-align: right;
+}
+
+.container-content h1 {
+    display: block;
+    width: 310px;
+    color: #FDBD03;
+    font: normal normal 900 66px/97px Heebo;
+    text-align: right;
+}
+
+.container-content p {
+    display: block;
+    text-align: right;
+    font: normal normal normal 20px/29px Heebo;
+    color: #020253;
+    width: 385px;
+}
+
+.form-img {
+
+    /* Ensures the image takes up half the width */
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-img img {}
