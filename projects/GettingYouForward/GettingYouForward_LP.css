@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-image {
+    width: 100%;
+    height: 590;
+}
+
+.container-image img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.container-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1A1A1AD4;
+    width: 569px;
+    height: 643px;
+    z-index: 3;
+    position: absolute;
+    top: 157px;
+    left: 1056px;
+    padding: 0 68px 68px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    width: 420px;
+    margin-bottom: 20px;
+}
+
+.content h1 {
+    display: block;
+    font-size: 36px;
+    font-weight: 900;
+    font-family: "Heebo", serif;
+    color: #fff;
+    text-align: right;
+    height: 70px;
+}
+
+.content p {
+    font-size: 20px;
+    color: #F9F9F9;
+    text-align: right;
+    font: normal normal normal 20px/29px Heebo;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    gap: 20px;
+    width: 100%;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+label {
+    text-align: right;
+    font: bold 16px Heebo;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+
+}
+
+input[type="text"],
+input[type="email"] {
+    height: 50px;
+    border: 1px solid #D31C75;
+    width: 100%;
+}
+
+input[type="submit"] {
+    text-align: center;
+    font: bold 22px Heebo;
+    letter-spacing: 0.33px;
+    color: #FFFFFF;
+    background-color: #D31C75;
+    border: none;
+    width: 166px;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+
+/*Responsive Style*/
+
+@media (max-width: 768px) {
+
+    body {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .container-image {
+        height: 213px;
+        position: relative;
+    }
+
+    .container-image img {
+        background-image: url('/images/pinkBanner.png');
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    .container-box {
+        position: absolute;
+        top: 95px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        width: 82%;
+        height: 485px;
+        margin: 0 auto;
+        background-color: #1A1A1AD4;
+        padding: 20px;
+    }
+
+
+    .content h1 {
+        font-size: 25px;
+        text-align: center;
+        width: 80%;
+        line-height: 30px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 13px;
+
+
+    }
+
+    .content p {
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        line-height: 22px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .content {
+        width: 100%;
+
+    }
+
+    .container-form {
+        gap: 30px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+        height: 28px;
+        font-size: 14px;
+    }
+
+    input[type="submit"] {
+        font-size: 15px;
+        width: 78px;
+        height: 33px;
+        margin: 0;
+    }
+}

@@ -229,3 +229,5 @@ body {
         padding-right: 20px;
     }
 } */
+
+@media screen and (max-width: 550px) {}
