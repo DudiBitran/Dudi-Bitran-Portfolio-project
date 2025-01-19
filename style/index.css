@@ -166,7 +166,6 @@ body {
         visibility: hidden;
         border-bottom: 2px solid var(--primary-color);
         border-left: 2px solid var(--primary-color);
-
     }
 
     .header {
@@ -186,6 +185,7 @@ body {
         font-size: 20px;
         margin: 0;
         color: #fff;
+        font-family: "Orbitron", sans-serif;
     }
 
     .logo .logo-image {
@@ -1010,7 +1010,6 @@ body {
     gap: 2rem;
     padding: 2rem 1rem;
     overflow: hidden;
-    cursor: pointer;
     box-shadow: 0 0 5px var(--primary-color);
     transition: 0.3s ease;
 

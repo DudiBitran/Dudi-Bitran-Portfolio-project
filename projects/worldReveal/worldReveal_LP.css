@@ -230,4 +230,75 @@ body {
     }
 } */
 
-@media screen and (max-width: 550px) {}
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        gap: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item img {
+        width: 100%;
+        /* Scale images to fit within their container */
+        height: 100%;
+    }
+
+    .item15 {
+        grid-column: 1 / 5;
+        grid-row: 5/ 8;
+    }
+
+    .item16 {
+        grid-column: 1 / 5;
+        grid-row: 1/2;
+        /* Full width for form and content */
+        padding: 15px;
+    }
+
+    .form-content {
+        padding: 10px;
+        position: static;
+        /* Ensure form content is responsive */
+    }
+
+    .form-control {
+        width: 100%;
+        /* Stretch form controls to container */
+        gap: 15px;
+    }
+
+    .form-control input,
+    .form-control textarea {
+        width: 100%;
+        /* Full width input and textarea */
+    }
+
+    .form-control input[type="submit"] {
+        width: 100%;
+        /* Full width submit button */
+        font-size: 18px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .content h1 {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .content p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
