@@ -4,55 +4,49 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    direction: rtl;
 }
 
-.banner {
+.container-banner {
+    display: flex;
+    width: 100%;
+    height: 743px;
+}
+
+.container-banner .content {
     position: relative;
     display: flex;
-    height: 743px;
-}
-
-.banner .bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url('/images/Landing_Page2_bg.png');
-    height: 743px;
     width: 100%;
+    height: 100%;
+    background-image: url('/images/Landing_Page2_bg.png');
+    flex-direction: column;
 }
 
-.banner h1 {
-    display: flex;
+.container-banner .content h1 {
+    display: block;
     position: absolute;
     top: 282px;
-    left: 526px;
-    width: 868px;
-    height: 113px;
-    text-align: right;
+    width: 100%;
+    direction: rtl;
+    text-align: center;
     font: normal normal bold 86px/113px Assistant;
-    letter-spacing: 0px;
     color: #D3E10E;
-    opacity: 1;
 }
 
-.banner .banner-text {
+.container-banner .content p {
+    display: block;
     position: absolute;
     top: 418px;
-    left: 600px;
-    width: 721px;
-    height: 26px;
+    width: 100%;
+    direction: rtl;
     text-align: center;
     font: normal normal normal 20px/26px Assistant;
-    letter-spacing: 0px;
     color: #F9F9F9;
-    opacity: 1;
 }
-
 
 .form {
     position: relative;
     display: flex;
+    flex-direction: row-reverse;
     margin-top: 40px;
     width: 100%;
     height: 100px;
@@ -74,7 +68,6 @@ input[type="text"] {
     background: #F6F6F6;
     border: 0;
     border-bottom: 5px solid #D3E10E;
-    /* font: normal normal bold 16px/21px Assistant; */
 }
 
 input[type="email"] {
@@ -83,16 +76,16 @@ input[type="email"] {
     background: #F6F6F6;
     border: 0;
     border-bottom: 5px solid #D3E10E;
-    /* font: normal normal bold 16px/21px Assistant; */
 }
 
 .form-control label {
-    font: normal normal bold 16px/21px Assistant;
+    font: normal normal bold 16px Assistant;
     color: #011560;
+    direction: rtl;
 }
 
 .form-btn {
-    display: flex;
+    display: block;
     margin-top: 17px;
     width: 166px;
     height: 40px;
@@ -100,27 +93,29 @@ input[type="email"] {
     border: #D3E10E;
     font: normal normal bold 22px/30px Assistant;
     color: #011560;
-    opacity: 1;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .banner {
-        max-height: 299.87px;
-        max-width: 370px;
-    }
 
-    .banner {
-        width: 100%;
-    }
-
-    .banner .bg-img {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+@media (max-width: 550px) {
+    .container-banner {
         height: 300px;
+
+    }
+
+    .container-banner .content {
+        background-image: url('/images/Landing_Page2_bg-mobile.png');
+        background-repeat: no-repeat;
+        background-size: cover;
         width: 100%;
-        object-fit: contain;
+    }
+
+    .container-banner .content h1 {
+        display: none;
+
+    }
+
+    .container-banner .content p {
+        display: none;
     }
 
     .form-control label {
