@@ -467,12 +467,12 @@ body {
     }
 
     .about-button {
-        font-size: 16px;
-        padding: 8px 16px;
+        font-size: 15px;
+        padding: 8px 12px;
     }
 
     .btn i {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -507,7 +507,7 @@ body {
     }
 
     .btn i {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
