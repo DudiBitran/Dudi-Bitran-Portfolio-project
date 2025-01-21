@@ -149,7 +149,7 @@
     }
 
     .hamburger {
-        display: block;
+        display: none;
     }
 
     .navbar a {
@@ -365,7 +365,7 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        height: 170px;
+        height: 200px;
         align-items: center;
         position: absolute;
         top: 20px;
@@ -392,7 +392,7 @@
     }
 
     .banner-container .content h1 {
-        font-size: 45px;
+        font-size: 40px;
         padding-right: 16px;
         padding-left: 16px;
         line-height: 1.2;

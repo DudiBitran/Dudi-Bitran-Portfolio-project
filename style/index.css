@@ -19,13 +19,13 @@ body {
 
 :root {
     --primary-color: #10e69e;
+    /* --primary-color: #dd3400; */
     /* --primary-color: #e40b0b; */
 }
 
 /*Header Section*/
 
 
-/* Header Styles */
 .header {
     background-color: #06060f77;
     font-family: "Orbitron", sans-serif;
@@ -522,7 +522,7 @@ body {
 }
 
 .contact h2 {
-    font-size: 55px;
+    font-size: 65px;
     text-align: center;
     align-items: center;
     font-family: "Homenaje", serif;
@@ -537,7 +537,7 @@ body {
     justify-content: center;
     gap: 3rem;
     margin: 5rem 0;
-    text-align: center;
+    text-align: left;
 }
 
 .contact form .input-box input,
@@ -551,6 +551,16 @@ body {
     border: 2px solid var(--primary-color);
     margin: 1.5rem 0;
     resize: none;
+}
+
+.input-box label {
+    width: 100%;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 20px;
+    font-weight: 600;
+    font-family: "Orbitron", sans-serif;
+
 }
 
 .form-btn {
@@ -572,32 +582,7 @@ body {
     border: 0;
 }
 
-@media (max-width: 1024px) {
-    .contact h2 {
-        font-size: 40px;
-    }
 
-    .contact form {
-        gap: 2rem;
-        justify-content: center;
-    }
-
-    .contact form .input-box input,
-    .contact form textarea {
-        padding: 2rem;
-        font-size: 1.5rem;
-    }
-
-    .form-btn {
-        padding: 12px 25px;
-        font-size: 16px;
-    }
-
-    .input-group {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
 
 @media (max-width: 768px) {
     .contact h2 {
@@ -631,7 +616,7 @@ body {
 
 @media (max-width: 480px) {
     .contact h2 {
-        font-size: 24px;
+        font-size: 40px;
         margin-bottom: 15px;
     }
 
@@ -650,6 +635,11 @@ body {
         padding-left: 15px;
         padding-right: 15px;
     }
+
+    .input-box label {
+        font-size: 16px;
+    }
+
 }
 
 
@@ -660,9 +650,8 @@ body {
     position: relative;
     top: 90px;
     width: 100%;
-    height: 100px;
-    background-color: #181717ab;
-    box-shadow: 0 .5px 15px #353535;
+    height: 120px;
+    border-bottom: 3px solid #a1a1a1e1;
     border-radius: 0 0 20px 20px;
 }
 
@@ -671,54 +660,51 @@ body {
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 110px;
     padding-left: 50px;
     padding-right: 50px;
 }
 
+
 .skills-icons img {
     display: inline-block;
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     cursor: pointer;
+    background-color: #ffffffe5;
+    border-radius: 50%;
+    box-shadow: 0 1px 7px #ffffffe5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.skills-icons img:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
+}
+
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
+
+
+
+@media (max-width: 550px) {
+    .skills {
+        height: 150px;
+    }
+
     .skills .skills-icons {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-    .skills-icons img {
-        width: 45px;
-        height: 45px;
-    }
-}
-
-@media (max-width: 768px) {
-    .skills .skills-icons {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .skills-icons img {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .skills .skills-icons {
+        height: 100%;
         padding-left: 10px;
         padding-right: 10px;
+        gap: 15px;
         justify-content: center;
+        flex-wrap: wrap;
         /* Center the icons on smaller screens */
     }
 
     .skills-icons img {
-        width: 35px;
-        height: 35px;
+        width: 50px;
+        height: 50px;
     }
 }
 
@@ -948,7 +934,7 @@ body {
     }
 
     .banner-content h3 {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         margin-bottom: 1rem;
     }
 

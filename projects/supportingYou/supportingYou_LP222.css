@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-banner {
+    display: flex;
+    width: 100%;
+    height: 743px;
+}
+
+.container-banner .content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/Landing_Page2_bg.png');
+    flex-direction: column;
+}
+
+.container-banner .content h1 {
+    display: block;
+    position: absolute;
+    top: 282px;
+    width: 100%;
+    direction: rtl;
+    text-align: center;
+    font: normal normal bold 86px/113px Assistant;
+    color: #D3E10E;
+}
+
+.container-banner .content p {
+    display: block;
+    position: absolute;
+    top: 418px;
+    width: 100%;
+    direction: rtl;
+    text-align: center;
+    font: normal normal normal 20px/26px Assistant;
+    color: #F9F9F9;
+}
+
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 40px;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.form .form-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 38px;
+}
+
+input[type="text"] {
+    height: 40px;
+    width: 300px;
+    background: #F6F6F6;
+    border: 0;
+    border-bottom: 5px solid #D3E10E;
+}
+
+input[type="email"] {
+    height: 40px;
+    width: 300px;
+    background: #F6F6F6;
+    border: 0;
+    border-bottom: 5px solid #D3E10E;
+}
+
+.form-control label {
+    font: normal normal bold 16px Assistant;
+    color: #011560;
+    direction: rtl;
+}
+
+.form-btn {
+    display: block;
+    margin-top: 17px;
+    width: 166px;
+    height: 40px;
+    background-color: #D3E10E;
+    border: #D3E10E;
+    font: normal normal bold 22px/30px Assistant;
+    color: #011560;
+}
+
+
+@media (max-width: 550px) {
+    .container-banner {
+        height: 300px;
+
+    }
+
+    .container-banner .content {
+        background-image: url('/images/Landing_Page2_bg-mobile.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+    }
+
+    .container-banner .content h1 {
+        display: none;
+
+    }
+
+    .container-banner .content p {
+        display: none;
+    }
+
+    .form-control label {
+        font-size: 14px;
+    }
+
+
+    .form {
+        height: 500px;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        margin: 0;
+    }
+
+    .form .form-control {
+        margin-left: 0;
+        margin-top: 20px;
+
+    }
+
+    .form-btn {
+        width: 300px;
+        font-size: 14px;
+    }
+}
