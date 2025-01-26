@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+}
+
+.overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 90px;
+    top: 25%;
+    z-index: 1;
+}
+
+.box-1 {
+    width: 180px;
+    height: 400px;
+    background-image: url('/images/snowMan.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0 10px;
+}
+
+.box-2 {
+    width: 180px;
+    height: 400px;
+    background-image: url('/images/jetSki.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0 10px;
+    transform: translateY(-80px);
+}
+
+.box-3 {
+    width: 180px;
+    height: 400px;
+    background-image: url('/images/smallTown.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0 10px;
+}
+
+.box-4 {
+    width: 180px;
+    height: 400px;
+    background-image: url('/images/skiMan.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0 10px;
+    transform: translateY(-80px);
+}
+
+main {
+    width: 64vw;
+    float: right;
+    position: relative;
+    z-index: 5;
+    top: 30%;
+}
+
+main h1 {
+    font-size: 190px;
+    letter-spacing: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    transform: translatex(-10px);
+    padding-left: 20px;
+    color: #fff;
+    line-height: 50px;
+    margin: 0;
+}
+
+main h1 span {
+    color: #08303A;
+}
+
+main h5 {
+    position: relative;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 35px;
+    color: #0F979B;
+    transform: translateY(70px);
+    text-align: center;
+}
+
+main p {
+    width: 40%;
+    position: absolute;
+    right: 370px;
+    text-align: justify;
+    transform: translateY(110px);
+    font-weight: 400;
+    color: #7f7f7f;
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #0F979B;
+    position: absolute;
+    bottom: 0;
+}
+
+footer form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+footer h3 {
+    color: #fff;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-family: 'Bebas Neue', sans-serif;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+    width: 200px;
+    height: 40px;
+    background-color: #ffffffda;
+    border: 0;
+    border-radius: 5px;
+    border: 2px solid #08303A;
+}
+
+button[type="submit"] {
+    width: 100px;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #08303A;
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+::placeholder {
+    font-size: 18px;
+    color: #363636;
+}
+
+@media screen and (max-width: 550px) {
+    .overlay {
+        position: relative;
+        left: 0;
+    }
+
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4 {
+        width: 120px;
+        height: 150px;
+        display: none;
+    }
+
+    footer {
+        width: 100%;
+        height: 400px;
+
+    }
+
+    footer form {
+        flex-direction: column;
+    }
+
+    main {
+        position: absolute;
+        top: 0;
+        height: 400px;
+        width: 100%;
+        background-image: url('/images/skiMan2.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        box-shadow: 1px 2px 10px #f5f5f5;
+    }
+
+    main h1 {
+        font-size: 70px;
+        letter-spacing: 4px;
+        transform: translateY(80px);
+        color: #000;
+    }
+
+    main h5 {
+        font-size: 20px;
+        letter-spacing: 20px;
+        transform: translateY(90px);
+        font-weight: 400;
+        color: #afe1ee;
+
+    }
+
+    main p {
+        display: none;
+    }
+
+    footer h3 {
+        font-size: 20px;
+        width: 80%;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    button[type="submit"] {
+        height: 35px;
+        width: 80%;
+    }
+}
