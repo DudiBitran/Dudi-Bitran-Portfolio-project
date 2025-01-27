@@ -60,7 +60,6 @@ img {
     display: flex;
     flex-direction: column;
     align-items: right;
-    /* align-items: center; */
     margin-top: 10em;
 }
 
@@ -141,7 +140,5 @@ input[type="submit"] {
     div>h1 {
         font-size: 28px;
     }
-
-
 
 }

@@ -19,8 +19,6 @@ body {
 
 :root {
     --primary-color: #10e69e;
-    /* --primary-color: #dd3400; */
-    /* --primary-color: #e40b0b; */
 }
 
 /*Header Section*/
@@ -709,7 +707,6 @@ body {
         gap: 15px;
         justify-content: center;
         flex-wrap: wrap;
-        /* Center the icons on smaller screens */
     }
 
     .skills-icons img {
@@ -1070,23 +1067,20 @@ body {
 
     .projects h2 {
         font-size: 40px;
-        /* Smaller font size for the title */
         margin-top: 50px;
         margin-bottom: 30px;
     }
 
     .project-card h3 {
         font-size: 2rem;
-        /* Smaller font size for project title */
     }
 
     .project-card p {
         font-size: 1.4rem;
-        /* Smaller font size for project description */
     }
 }
 
-/* for very small screens (mobile phones) */
+
 @media (max-width: 480px) {
     .projects h2 {
         font-size: 35px;

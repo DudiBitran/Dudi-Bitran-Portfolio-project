@@ -186,4 +186,8 @@ button i {
         width: 100%;
     }
 
+    ::placeholder {
+        font-size: 15px;
+    }
+
 }

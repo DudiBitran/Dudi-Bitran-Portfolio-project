@@ -93,13 +93,13 @@ input[type="email"] {
     border: #D3E10E;
     font: normal normal bold 22px/30px Assistant;
     color: #011560;
+    cursor: pointer;
 }
 
 
 @media (max-width: 550px) {
     .container-banner {
         height: 300px;
-
     }
 
     .container-banner .content {
