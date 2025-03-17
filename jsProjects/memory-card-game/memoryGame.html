@@ -4,14 +4,21 @@
     <meta charset="utf-8" />
     <title>Memory Card Game</title>
     <link rel="stylesheet" type="text/css" href="memoryGame.css" />
+    <script src="memoryGame.js" defer></script>
   </head>
   <body>
-    <h1>Memory Cards</h1>
-    <div class="grid-container"></div>
-    <p>Score: <span class="score"></span></p>
-    <div class="actions">
-      <button onclick="restart()">Restart</button>
+    <div class="game">
+      <div class="controls">
+        <button>Start</button>
+        <div class="stats">
+          <div class="moves">0 moves</div>
+          <div class="timer">Time: 0 sec</div>
+        </div>
+      </div>
+      <div class="board-container">
+        <div class="board" data-dimension="4"></div>
+        <div class="win">You won!</div>
+      </div>
     </div>
-    <script src="memoryGame.js"></script>
   </body>
 </html>

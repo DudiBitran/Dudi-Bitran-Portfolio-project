@@ -37,31 +37,26 @@ body {
   align-items: center;
   z-index: 100;
 }
-
 .logo {
   display: flex;
   align-items: center;
 }
-
 .logo .logo-image {
   width: 80px;
   height: 80px;
   margin-right: 15px;
 }
-
 .logo span {
   font-size: 24px;
   font-family: "Bruno Ace SC", serif;
   color: #fff;
 }
-
 /* Navbar Links */
 .navbar {
   display: flex;
   gap: 40px;
   transition: transform 0.3s ease-in-out;
 }
-
 .navbar a {
   font-size: 22px;
   color: #898989;
@@ -70,11 +65,9 @@ body {
   position: relative;
   cursor: pointer;
 }
-
 .navbar a:hover {
   color: #fff;
 }
-
 .navbar a::before {
   content: "";
   position: absolute;
@@ -85,17 +78,14 @@ body {
   background-color: var(--primary-color);
   transition: width 0.3s;
 }
-
 .navbar a:hover::before {
   width: 100%;
 }
 
-/* Hidden Checkbox */
 .menu-toggle {
   display: none;
 }
 
-/* Hamburger Icon */
 .hamburger {
   display: none;
   width: 30px;
@@ -105,7 +95,6 @@ body {
   z-index: 101;
 }
 
-/* Top, middle, and bottom lines */
 .hamburger::before,
 .hamburger::after,
 .hamburger div {
@@ -118,40 +107,43 @@ body {
   transition: all 0.3s;
 }
 
-/* Top line */
 .hamburger::before {
   top: 0;
 }
 
-/* Middle line */
 .hamburger div {
   top: 10px;
 }
 
-/* Bottom line */
 .hamburger::after {
   bottom: 0;
 }
-
-/* Transformations on menu toggle */
 .menu-toggle:checked + .hamburger::before {
   transform: rotate(45deg);
   top: 50%;
 }
-
 .menu-toggle:checked + .hamburger div {
   opacity: 0;
 }
-
 .menu-toggle:checked + .hamburger::after {
   transform: rotate(-45deg);
   bottom: 50%;
 }
-
 .dropdown {
   position: relative;
 }
-
+.dropdown-toggle {
+  cursor: pointer;
+}
+.dropdown-toggle::after {
+  content: "▼";
+  font-size: 12px;
+  margin-left: 5px;
+  transition: transform 0.3s;
+}
+.dropdown.active .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -161,8 +153,10 @@ body {
   z-index: 10;
   border-radius: 8px;
   transform: translateX(-30px);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .dropdown-menu a {
   display: block;
   font-size: 16px;
@@ -171,13 +165,16 @@ body {
   text-decoration: none;
   text-align: center;
 }
-
 .dropdown-menu a:hover {
   background-color: #333;
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateX(-30px) translateY(0);
+  }
 }
 
 /* Responsive Styles */
@@ -197,61 +194,57 @@ body {
     border-bottom: 2px solid var(--primary-color);
     border-left: 2px solid var(--primary-color);
   }
-
   .header {
     background-color: #06060f;
   }
-
   .menu-toggle:checked ~ .navbar {
     transform: translateY(0);
     visibility: visible;
   }
-
   .hamburger {
     display: block;
   }
-
   .navbar a {
     font-size: 20px;
     margin: 0;
     color: #fff;
     font-family: "Orbitron", sans-serif;
   }
-
   .logo .logo-image {
     display: none;
   }
-
   .dropdown {
     width: 100%;
     text-align: center;
   }
 
   .dropdown-menu {
-    position: relative;
-    background-color: #1c1c1c;
-    display: none;
-    flex-direction: column;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
+    position: static;
+    width: 100%;
+    background-color: #1c1c1cda;
+    border-radius: 0;
+    transform: none;
+    transition: max-height 0.3s ease-out, opacity 0.3s;
+    max-height: 0;
+    overflow: hidden;
+    display: block;
+    opacity: 0;
   }
-
+  .dropdown.active .dropdown-menu {
+    max-height: 500px;
+    opacity: 1;
+  }
+  .dropdown:hover .dropdown-menu {
+    display: none;
+  }
   .dropdown-menu a {
-    padding: 10px;
-    text-align: left;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 16px;
     border-bottom: 1px solid #333;
   }
-
-  .dropdown:hover .dropdown-menu,
-  .dropdown:focus-within .dropdown-menu {
-    display: flex;
-    transform: translateY(0);
-  }
-
-  /* Ensure proper tap interaction on mobile */
-  .dropdown {
-    position: relative;
-    z-index: 10;
+  .dropdown-menu a:last-child {
+    border-bottom: none;
   }
 }
 

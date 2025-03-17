@@ -1,99 +1,156 @@
-const gridContainer = document.querySelector(".grid-container");
-let cards = [];
-let firstCard, secondCard;
-let lockBoard = false;
-let score = 0;
+const selectors = {
+  boardContainer: document.querySelector(".board-container"),
+  board: document.querySelector(".board"),
+  moves: document.querySelector(".moves"),
+  timer: document.querySelector(".timer"),
+  start: document.querySelector("button"),
+  win: document.querySelector(".win"),
+};
 
-document.querySelector(".score").textContent = score;
+const state = {
+  gameStarted: false,
+  flippedCards: 0,
+  totalFlips: 0,
+  totalTime: 0,
+  loop: null,
+};
 
-fetch("/jsProjects/memory-card-game/data/cards.json")
-  .then((res) => res.json())
-  .then((data) => {
-    cards = [...data, ...data];
-    shuffleCards();
-    generateCards();
+const shuffle = (array) => {
+  const clonedArray = [...array];
+
+  for (let i = clonedArray.length - 1; i > 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    const original = clonedArray[i];
+
+    clonedArray[i] = clonedArray[randomIndex];
+    clonedArray[randomIndex] = original;
+  }
+
+  return clonedArray;
+};
+
+const pickRandom = (array, items) => {
+  const clonedArray = [...array];
+  const randomPicks = [];
+
+  for (let i = 0; i < items; i++) {
+    const randomIndex = Math.floor(Math.random() * clonedArray.length);
+
+    randomPicks.push(clonedArray[randomIndex]);
+    clonedArray.splice(randomIndex, 1);
+  }
+
+  return randomPicks;
+};
+
+const generateGame = () => {
+  const dimensions = selectors.board.getAttribute("data-dimension");
+
+  if (dimensions % 2 !== 0) {
+    throw new Error("The dimension of the board must be an even number.");
+  }
+
+  const emojis = ["🥔", "🍒", "🥑", "🌽", "🥕", "🍇", "🍉", "🍌", "🥭", "🍍"];
+  const picks = pickRandom(emojis, (dimensions * dimensions) / 2);
+  const items = shuffle([...picks, ...picks]);
+  const cards = `
+        <div class="board" style="grid-template-columns: repeat(${dimensions}, auto)">
+            ${items
+              .map(
+                (item) => `
+                <div class="card">
+                    <div class="card-front"></div>
+                    <div class="card-back">${item}</div>
+                </div>
+            `
+              )
+              .join("")}
+       </div>
+    `;
+
+  const parser = new DOMParser().parseFromString(cards, "text/html");
+
+  selectors.board.replaceWith(parser.querySelector(".board"));
+};
+
+const startGame = () => {
+  state.gameStarted = true;
+  selectors.start.classList.add("disabled");
+
+  state.loop = setInterval(() => {
+    state.totalTime++;
+
+    selectors.moves.innerText = `${state.totalFlips} moves`;
+    selectors.timer.innerText = `Time: ${state.totalTime} sec`;
+  }, 1000);
+};
+
+const flipBackCards = () => {
+  document.querySelectorAll(".card:not(.matched)").forEach((card) => {
+    card.classList.remove("flipped");
   });
 
-function shuffleCards() {
-  let currentIndex = cards.length,
-    randomIndex,
-    temporaryValue;
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = cards[currentIndex];
-    cards[currentIndex] = cards[randomIndex];
-    cards[randomIndex] = temporaryValue;
-  }
-}
+  state.flippedCards = 0;
+};
 
-function generateCards() {
-  for (let card of cards) {
-    const cardElement = document.createElement("div");
-    cardElement.classList.add("card");
-    cardElement.setAttribute("data-name", card.name);
-    cardElement.innerHTML = `
-      <div class="front">
-        <img class="front-image" src=${card.image} />
-      </div>
-      <div class="back"></div>
-    `;
-    gridContainer.appendChild(cardElement);
-    cardElement.addEventListener("click", flipCard);
-  }
-}
+const flipCard = (card) => {
+  state.flippedCards++;
+  state.totalFlips++;
 
-function flipCard() {
-  if (lockBoard) return;
-  if (this === firstCard) return;
-
-  this.classList.add("flipped");
-
-  if (!firstCard) {
-    firstCard = this;
-    return;
+  if (!state.gameStarted) {
+    startGame();
   }
 
-  secondCard = this;
-  score++;
-  document.querySelector(".score").textContent = score;
-  lockBoard = true;
+  if (state.flippedCards <= 2) {
+    card.classList.add("flipped");
+  }
 
-  checkForMatch();
-}
+  if (state.flippedCards === 2) {
+    const flippedCards = document.querySelectorAll(".flipped:not(.matched)");
 
-function checkForMatch() {
-  let isMatch = firstCard.dataset.name === secondCard.dataset.name;
+    if (flippedCards[0].innerText === flippedCards[1].innerText) {
+      flippedCards[0].classList.add("matched");
+      flippedCards[1].classList.add("matched");
+    }
 
-  isMatch ? disableCards() : unflipCards();
-}
+    setTimeout(() => {
+      flipBackCards();
+    }, 1000);
+  }
+  if (!document.querySelectorAll(".card:not(.flipped)").length) {
+    setTimeout(() => {
+      selectors.boardContainer.classList.add("flipped");
+      selectors.win.innerHTML = `
+                <span class="win-text">
+                    You won!<br />
+                    with <span class="highlight">${state.totalFlips}</span> moves<br />
+                    under <span class="highlight">${state.totalTime}</span> seconds
+                </span>
+            `;
 
-function disableCards() {
-  firstCard.removeEventListener("click", flipCard);
-  secondCard.removeEventListener("click", flipCard);
+      clearInterval(state.loop);
+    }, 1000);
+  }
+};
 
-  resetBoard();
-}
+const attachEventListeners = () => {
+  document.addEventListener("click", (event) => {
+    const eventTarget = event.target;
+    const eventParent = eventTarget.parentElement;
 
-function unflipCards() {
-  setTimeout(() => {
-    firstCard.classList.remove("flipped");
-    secondCard.classList.remove("flipped");
-    resetBoard();
-  }, 1000);
-}
+    if (
+      eventTarget.className.includes("card") &&
+      !eventParent.className.includes("flipped")
+    ) {
+      flipCard(eventParent);
+    } else if (
+      eventTarget.nodeName === "BUTTON" &&
+      !eventTarget.className.includes("disabled")
+    ) {
+      startGame();
+    }
+  });
+};
 
-function resetBoard() {
-  firstCard = null;
-  secondCard = null;
-  lockBoard = false;
-}
-
-function restart() {
-  resetBoard();
-  shuffleCards();
-  score = 0;
-  document.querySelector(".score").textContent = score;
-  gridContainer.innerHTML = "";
-  generateCards();
-}
+generateGame();
+attachEventListeners();
